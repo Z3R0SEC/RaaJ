@@ -10,10 +10,6 @@ module.exports.run = async ({ api, event, args }) => {
     const threadInfo = await api.getThreadInfo(event.threadID);
     const isAdmin = threadInfo.adminIDs.some(admin => admin.id === event.senderID);
 
-    if (!isAdmin) {
-        return api.sendMessage("Only group admins can use this command.", event.threadID);
-    }
-
     // Check for valid sub-command (rename, promote, demote, add, remove, emoji, color, approval, info)
     const action = args[0]?.toLowerCase();
 
