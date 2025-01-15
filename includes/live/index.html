@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Example</title>
+    <script>
+        // Use the fetch API to get data from the server
+        document.addEventListener("DOMContentLoaded", () => {
+         setTimeout(() => {
+            fetch('/data')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('message').textContent = data.message;
+                    document.getElementById('bot').textContent = data.botty;
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+       }, 30000);
+    </script>
+</head>
+<body>
+    <h1 id="bot">Loading Bot Name ...</h1>
+    <p id="message">Calculating Admins ...</p>
+</body>
+</html>

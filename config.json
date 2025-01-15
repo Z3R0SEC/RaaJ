@@ -1,0 +1,8 @@
+{
+  "appstatepath": "./appstate.json",
+  "botname": "Raaj Kumar",
+  "adminIds": ["100091064756375"],
+  "blocked": [],
+  "badWords": ["fuck bot","fuck you","bitch","lerete","mao"],
+  "logLevel": "info"
+}
