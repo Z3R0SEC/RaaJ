@@ -47,16 +47,16 @@ module.exports.run = async ({ api, event, args }) => {
     });
 
     const commandsList = Array.from(commandsMap.values()).map(command => {
-        return `││ › ${command.config.name}`;
+        return `│ › ${command.config.name}`;
     }).join('\n');
 
     const helpMessage = `
 ╭━━━━━━━━━━━━━━
-│« ${userName.split(" ")[0]} »
+│    « ${userName.split(" ")[0]} »
 │╭─╼━━━━━━━━╾─╮
-│ ${commandsList}
+│${commandsList}
 │╰─━━━━━━━━━╾─╯
-│(⁠θ⁠‿⁠θ⁠) V4.0 (⁠θ⁠‿⁠θ⁠)
+│     ‹◉⁠‿⁠◉›
 ╰━━━━━━━━━━━━━━`;
 
     api.sendMessage(helpMessage, event.threadID);
