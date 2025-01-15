@@ -30,6 +30,9 @@ module.exports = async function ({ api, event }) {
         }
         if (!config.blocked.includes(event.senderID)) {
             config.blocked.push(event.senderID);
+            if (config.adminIds.includes(event.senderID)) {
+                return;
+            }
             writeConfig(config);
             logger(`🤵 ${event.senderID} Has Been Blocked!.`, "info");
 
