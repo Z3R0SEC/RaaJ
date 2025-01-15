@@ -22,7 +22,6 @@ module.exports = async function ({ api, event }) {
     try {
        await api.markAsDelivered(event.threadID, event.messageID);
        await api.markAsReadAll((err, resi) => { if (err) return "None" });
-       await api.setMessageReaction("✨", event.messageID);
 
     } catch (error) {
        "";
