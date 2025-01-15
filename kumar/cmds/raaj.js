@@ -4,7 +4,7 @@ const path = require('path');
 const logger = require('../../includes/logger');
 
 module.exports.config = {
-    name: "rk",
+    name: "raaj",
     admin: false,
     description: "Chat with Raaj Ai",
     credits: "Z3R0SEC"
