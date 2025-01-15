@@ -20,8 +20,8 @@ const { readConfig } = require("./handleConfig")
 
 module.exports = async function ({ api, event }) {
     try {
-       await api.markAsDelivered(event.threadID, event.messageID);
-       await api.markAsReadAll((err, resi) => { if (err) return "None" });
+       api.markAsDelivered(event.threadID, event.messageID);
+       api.markAsReadAll((err, resi) => { if (err) return "None" });
 
     } catch (error) {
        "";
@@ -39,4 +39,3 @@ module.exports = async function ({ api, event }) {
 // Cyber Paladins for Contributing in the success of this
 // Project. Do not Change Credits for any Reason Unless
 // Authorized By Me!
-
