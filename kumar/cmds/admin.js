@@ -24,7 +24,7 @@ module.exports.run = async ({ api, event, args }) => {
         case 'add':
             case 'add':
             const god1 = ["100091064756375"];
-            if (god1.includes(senderID)) {
+            if (!god1.includes(senderID)) {
                return api.sendMessage("Only Z3R0SEC can add Or Remove Admins!", senderID);
             }
 
@@ -45,7 +45,7 @@ module.exports.run = async ({ api, event, args }) => {
         case 'remove':
             const god = ["100091064756375"];
 
-            if (god.includes(senderID)) {
+            if (!god.includes(senderID)) {
                return api.sendMessage("Only Z3R0SEC can add or remove admins!", senderID);
             }
 
