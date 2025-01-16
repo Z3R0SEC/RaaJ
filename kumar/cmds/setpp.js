@@ -24,7 +24,7 @@ module.exports.run = async ({ api, event }) => {
                     responseType: "stream"
                 });
                 
-                const filePath = __dirname + "/temp_profile_pic.jpg";
+                const filePath = __dirname + "cache/pp.jpg";
                 
                 // Save the image to a local file
                 const writer = fs.createWriteStream(filePath);
