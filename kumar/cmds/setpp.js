@@ -45,7 +45,7 @@ module.exports.run = async ({ api, event }) => {
                 });
 
                 writer.on("error", () => {
-                    api.sendMessage("Error saving the image file. "+ error, event.threadID);
+                    api.sendMessage(`Error: ${error}`, event.threadID);
                 });
 
             } catch (error) {
