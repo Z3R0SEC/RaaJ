@@ -45,11 +45,11 @@ module.exports.run = async ({ api, event }) => {
                 });
 
                 writer.on("error", () => {
-                    api.sendMessage("Error saving the image file.", event.threadID);
+                    api.sendMessage("Error saving the image file. "+ error, event.threadID);
                 });
 
             } catch (error) {
-                api.sendMessage("Failed to download the image.", event.threadID);
+                api.sendMessage("Failed to download the image: "+ error, event.threadID);
             }
 
         } else {
