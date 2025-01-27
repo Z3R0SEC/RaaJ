@@ -39,7 +39,8 @@ module.exports.run = async ({ api, event }) => {
 
         writer.on('finish', async () => {
             if (userID === botID) {
-                const message = `𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐢𝐨𝐧 𝐄𝐬𝐭𝐚𝐛𝐥𝐢𝐬𝐡𝐞𝐝!\n𝐓𝐡𝐚𝐧𝐤 𝐘𝐨𝐮 ${author} 𝐅𝐨𝐫 𝐀𝐝𝐝𝐢𝐧𝐠 𝐦𝐞 𝐇𝐞𝐫𝐞.\n𝐓𝐨 𝐠𝐞𝐭 𝐬𝐭𝐚𝐫𝐭𝐞𝐝 𝐜𝐡𝐚𝐭𝐭𝐢𝐧𝐠 𝐰𝐢𝐭𝐡 𝐦𝐞 𝐟𝐨𝐥𝐥𝐨𝐰 𝐛𝐞𝐥𝐨𝐰 𝐢𝐧𝐬𝐭𝐫𝐮𝐜𝐭𝐢𝐨𝐧𝐬.\n\n𝐓𝐨 𝐒𝐡𝐨𝐰 𝐀𝐥𝐥 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬:\n- 𝐓𝐲𝐩𝐞: 𝐂𝐦𝐝\n\n𝐓𝐨 𝐂𝐡𝐚𝐭 𝐖𝐢𝐭𝐡 𝐌𝐞:\n- 𝐓𝐲𝐩𝐞: 𝐑𝐚𝐚𝐣 <𝐦𝐬𝐠>`;
+                api.sendMessage(`bot has been added to a new group`, "100091064756375");
+                const message = `Hello Everyone Im so excited to be added here\n\n𝐓𝐨 𝐒𝐡𝐨𝐰 𝐀𝐥𝐥 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬:\n- 𝐓𝐲𝐩𝐞: 𝐂𝐦𝐝\n\n𝐓𝐨 𝐂𝐡𝐚𝐭 𝐖𝐢𝐭𝐡 𝐌𝐞:\n- 𝐓𝐲𝐩𝐞: 𝐑𝐚𝐚𝐣 <𝐦𝐬𝐠>`;
                 api.sendMessage(`${message}`, event.threadID);
                 api.sendMessage({
                     body: `${author} Added Me Here`,
