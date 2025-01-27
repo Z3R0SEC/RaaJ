@@ -66,7 +66,6 @@ module.exports.run = async ({ api, event, args }) => {
         case 'listadmins':
                 let adminList = config.adminIds.map(id => `> ${id}`).join("\n> ");
                 api.sendMessage(`[ Total Admins: ${config.adminIds.length} ]\n\n${adminList}`, event.threadID);
-            });
             break;
 
         default:
