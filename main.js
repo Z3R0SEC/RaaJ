@@ -13,6 +13,7 @@ Copyright (c) 2025 Z3R0SEC. All rights reserved.
 process.noDeprecation = true;
 const login = require("ws3-fca");
 const fs = require('fs');
+const axios = require('axios');
 const express = require("express");
 const { readConfig, readEventS, writeConfig } = require('./includes/handleConfig');
 const logger = require('./includes/logger');
@@ -59,8 +60,22 @@ if (!appstate || appstate.trim() === '') {
 
 console.clear();
 
+async function getEncouragementQuote() {
+    try {
+        const response = await axios.get('https://zenquotes.io/api/random');
+        return response.data[0].q + " - " + response.data[0].a;
+    } catch (error) {
+        logger("Error fetching quote: " + error.message, "error");
+        return "Though darkness may surround you, it is within its depths that you'll discover the spark that ignites your greatest strength. - RaaJ Kumar";
+    }
+}
+
 const raaj = express();
 const kumar = 5000;
+setTimeout(() => {
+    logger("Bot Auto Restarting ...", "info");
+    process.exit(0);
+}, 54000000);
 
 (async () => {
     const logger = require('./includes/logger');
@@ -111,6 +126,24 @@ const kumar = 5000;
 
         loadCommands(api)
         api.setOptions({ selfListen: true, logLevel: "silent" });
+        async function sendEncouragementQuote(api, groups) {
+             const quote = await getEncouragementQuote();
+             for (let groupId of groups) {
+                api.sendMessage(quote, groupId, (err) => {
+                if (err) logger(`Failed to send quote to group ${groupId}: ${err.message}`, "error");
+                });
+              }
+         }
+        setInterval(async () => {
+    const currentTime = moment.tz("Africa/Johannesburg").format('HH:mm');  // Current time in 24-hour format
+    const scheduledTimes = ["08:00", "12:00", "18:00", "22:00"];  // Times to send messages
+
+    if (scheduledTimes.includes(currentTime)) {
+        const groups = config.groupIds;  // Replace with your actual group IDs list
+        await sendEncouragementQuote(api, groups);
+        logger(`Sent encouragement quote at ${currentTime}`, "info");
+    }
+}, 60000);
         logger(handlevent(), "events");
         api.listenMqtt((err, event) => {
             if (err) {
