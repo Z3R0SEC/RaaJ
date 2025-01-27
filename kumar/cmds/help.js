@@ -48,7 +48,7 @@ module.exports.run = async ({ api, event, args }) => {
 
     const commandsList = Array.from(commandsMap.values()).map(command => {
         return `› ${command.config.name}`;
-    }).join('\n');
+    }).join('\n││');
 
     const helpMessage = `
 ╭━━━━━━━━━━━━━━
