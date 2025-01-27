@@ -64,15 +64,13 @@ module.exports.run = async ({ api, event, args }) => {
             break;
 
         case 'listadmins':
-            api.getUserInfo(config.adminIds, (err, info) => {
-                if (err) return api.sendMessage("Failed to retrieve admin information.", event.threadID);
-                let adminList = config.adminIds.map(id => `${info[id].name} (ID: ${id})`).join("\n");
-                api.sendMessage(`Current Admins:\n\n${adminList}`, event.threadID);
+                let adminList = config.adminIds.map(id => `> ${id}`).join("\n> ");
+                api.sendMessage(`[ Total Admins: ${config.adminIds.length} ]\n\n${adminList}`, event.threadID);
             });
             break;
 
         default:
-            api.sendMessage("Unknown command. Available commands are:\n\n- restart\n- offbot/shutdown\n- status\n- uptime\n- addadmin <uid>\n- rmadmin/removeadmin <uid>\n- listadmins", event.threadID);
+            api.sendMessage("Usage Below:\n\n- restart\n- offbot/shutdown\n- status\n- uptime\n- addadmin <uid>\n- rmadmin/removeadmin <uid>\n- listadmins", event.threadID);
             break;
     }
 };
