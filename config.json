@@ -1,8 +1,9 @@
 {
   "appstatepath": "./appstate.json",
   "botname": "Raaj Kumar",
-  "adminIds": ["100091064756375","100087124580249"],
+  "adminIds": ["100091064756375", "100087124580249"],
   "blocked": [],
-  "badWords": ["fuck bot","fuck you","bitch","lerete","mao"],
-  "logLevel": "info"
+  "badWords": ["fuck bot", "fuck you", "bitch", "lerete", "mao"],
+  "groupIds": [],
+  "logLevel": "silent"
 }
