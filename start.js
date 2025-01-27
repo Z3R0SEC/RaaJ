@@ -19,7 +19,7 @@ function startBot() {
 
         if (code !== 0) {
             console.log("Bot crashed. Restarting...");
-            setTimeout(startBot, 3000);
+            setTimeout(startBot, 3001);
         } else {
             console.log("Bot stopped gracefully. No restart needed.");
         }
