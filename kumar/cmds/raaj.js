@@ -19,7 +19,7 @@ module.exports.run = async ({ api, event, args }) => {
     }
 
     try {
-        const response = await axios.get('http://raaj-api.x10.bz/smart', {
+        const response = await axios.get('https://mota-api.x10.bz/api/ai', {
             params: {
                 user: userID,
                 prompt: body
