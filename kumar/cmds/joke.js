@@ -9,13 +9,13 @@ module.exports.config = {
 
 module.exports.run = async ({ api, event }) => {
     try {
-        const response = await axios.get('https://v2.jokeapi.dev/joke/Dark');
-        const data = await response.json();
+        const response = await axios.get('https://mota-api.x10.bz/api/jokes');
+        const data = await response.data;
 
-        if (data.type === 'single') {
+        if (data.joke) {
             api.sendMessage(data.joke, event.threadID);
         } else {
-            api.sendMessage(`${data.setup}\n${data.delivery}`, event.threadID);
+            api.sendMessage(`${data.error}\n:-)`, event.threadID);
         }
     } catch (error) {
         api.sendMessage('Shared Enough Jokes Already', event.threadID);
