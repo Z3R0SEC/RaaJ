@@ -72,7 +72,7 @@ If you prefer to use Termux on mobile devices, follow these steps:
 ```bash
 pkg update && pkg upgrade
 pkg install nodejs git
-git clone https://github.com/Z3R0SEC/chatmasterbot.git
+git clone https://github.com/Z3R0SEC/raaj
 cd chatmasterbot
 npm install
 node start
